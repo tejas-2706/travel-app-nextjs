@@ -35,7 +35,7 @@ export const CarCard = ({
     onSelect
 }: CarDetails & { onSelect: (carDetails: CarDetails) => void }) => {
     return (
-        <div className="w-full max-w-[280px] bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 hover:shadow-lg transition-shadow">
+        <div className="w-full max-w-[280px] bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-black dark:border-gray-600 hover:shadow-lg transition-shadow">
             <div className="px-3 pt-3">
                 <img
                     className="w-full h-28 object-contain rounded-t-lg bg-white"

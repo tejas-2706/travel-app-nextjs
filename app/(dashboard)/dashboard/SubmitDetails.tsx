@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { carPricesState, CombinedRentDetailState } from "@/store/atoms/details"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
+import { useRecoilValue, useSetRecoilState } from "recoil"
 import Loading from "../loading";
 
 export const SubmitDetails = () => {
@@ -20,7 +20,6 @@ export const SubmitDetails = () => {
                 // add explore data maybe
                 setLoading(true);
                 const cars_prices =  await createRentDetails({pickupDate, returnDate,time,fromstate,tostate,city});
-                console.log("Car Pricesssssss",cars_prices);
                 
                 setCarPrices(cars_prices);
 

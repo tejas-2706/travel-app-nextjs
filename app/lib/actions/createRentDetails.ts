@@ -1,7 +1,5 @@
 "use server"
 import db from "../../../lib/prisma"
-import { getServerSession } from "next-auth"
-import { autthOptions } from "../auth"
 import axios from "axios"
 
 interface RentDetails {
@@ -64,7 +62,7 @@ export const createRentDetails = async({pickupDate,returnDate,time,fromstate,tos
     }
     console.log(pickupDate.toLocaleString('en-IN'),returnDate.toLocaleString('en-IN'),time,fromstate,tostate,city);
     const distance  = await CalculateDistance( {fromstate,tostate,city} )
-    console.log("Distance" + distance.distance_km, distance.time_to_cover_hr,distance.origin,distance.destination);
+    // console.log("Distance" + distance.distance_km, distance.time_to_cover_hr,distance.origin,distance.destination);
     // console.log("Distance" + ((distance.distance_km)/1000).toFixed());
 
     const cars = await db.car.findMany({
@@ -81,8 +79,6 @@ export const createRentDetails = async({pickupDate,returnDate,time,fromstate,tos
             distance
         }
     }));
-    
-    console.log(prices);
     return prices; // array to display ready on frontend
 }
 

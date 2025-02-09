@@ -64,8 +64,8 @@ export const createBookingDetails = async(data:BookingData,SelectedCar:CarDetail
             carId: SelectedCar.id,
             pickup: exact_pickup,
             drop: exact_drop,
-            pickupDate: pickupDate || "",
-            returnDate: returnDate || "",
+            pickupDate: pickupDate?.toISOString() || "",
+            returnDate: returnDate?.toISOString() || "",
             time:pickuptime || "",
             distance_km:(SelectedCar.distance.distance_km/1000).toFixed(),
             price:SelectedCar.price
