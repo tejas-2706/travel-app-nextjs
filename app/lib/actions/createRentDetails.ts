@@ -46,7 +46,7 @@ export const CalculateDistance = async( {fromstate,tostate,city} : LocationDetai
 
 export const CalculatePriceRoundTrip = async (per_km_rate : string, distance : number) => {
     const distance_value = (distance/1000).toFixed(); // meters to km
-    console.log(distance_value);
+    // console.log(distance_value);
     const total_distance = Number(distance_value) * 2;
     // console.log(total_distance);
     const km_rate = Number(per_km_rate);
@@ -60,7 +60,7 @@ export const createRentDetails = async({pickupDate,returnDate,time,fromstate,tos
         console.error("🚨 Error: Pickup and Return Date are required!");
         return;
     }
-    console.log(pickupDate.toLocaleString('en-IN'),returnDate.toLocaleString('en-IN'),time,fromstate,tostate,city);
+    // console.log(pickupDate.toLocaleString('en-IN'),returnDate.toLocaleString('en-IN'),time,fromstate,tostate,city);
     const distance  = await CalculateDistance( {fromstate,tostate,city} )
     // console.log("Distance" + distance.distance_km, distance.time_to_cover_hr,distance.origin,distance.destination);
     // console.log("Distance" + ((distance.distance_km)/1000).toFixed());
@@ -79,6 +79,7 @@ export const createRentDetails = async({pickupDate,returnDate,time,fromstate,tos
             distance
         }
     }));
+    
     return prices; // array to display ready on frontend
 }
 

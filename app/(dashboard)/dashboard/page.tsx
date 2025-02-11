@@ -1,16 +1,14 @@
 "use client"
-import { Hero } from "./Hero";
+import { AboutSection } from "./about-section";
+import { HeroSection } from "./hero-section";
+import { ServicesSection } from "./services-section";
 
 export default function(){
     return (
-      <main className="min-h-screen">
-        <Hero />
-        {/* <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-center mb-12">Outstation Car Rental</h2>
-            <RentDetails />
-          </div>
-        </section> */}
-      </main>
+      <div className="min-h-screen bg-white dark:bg-black">
+            <HeroSection />
+            <AboutSection />
+            <ServicesSection />
+      </div>
     )
 }

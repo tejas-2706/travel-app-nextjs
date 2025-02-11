@@ -15,7 +15,7 @@ export const Appbar = () => {
                 </div>
                 {/* <div className="text-2xl font-bold px-4 rounded-lg">Travel App </div> */}
                 <Link href={'/book-now'} ><Button variant={"link"}>Book Now</Button></Link>
-                <div><Button variant={"link"}>About</Button></div>
+                <Link href={'/about'} ><Button variant={"link"}>About</Button></Link>
             </ul>
             <div className="flex gap-4">
                 <UserAuth />

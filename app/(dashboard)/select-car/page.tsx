@@ -32,7 +32,9 @@ export default function () {
     };
     console.log(CarPrices);
     if (!CarPrices){
-        return <div>No Options Selected, select From ---- To Options</div>
+        return <div>No Options Selected, select From ---- To Options
+            {/* <button onClick={()=>{router.push(`/book-now`)}}>click</button> */}
+        </div>
     }
 
     // const carCards = [];
