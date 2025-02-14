@@ -56,3 +56,4 @@ model Booking {
   distance_km String
   price Int
 }
+

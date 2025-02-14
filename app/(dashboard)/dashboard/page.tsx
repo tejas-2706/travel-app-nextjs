@@ -1,5 +1,7 @@
 "use client"
 import { AboutSection } from "./about-section";
+import { FaqSection } from "./faq-section";
+import { FooterSection } from "./footer-section";
 import { HeroSection } from "./hero-section";
 import { ServicesSection } from "./services-section";
 
@@ -9,6 +11,8 @@ export default function(){
             <HeroSection />
             <AboutSection />
             <ServicesSection />
+            <FaqSection/>
+            <FooterSection/>
       </div>
     )
 }
