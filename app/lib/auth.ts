@@ -8,19 +8,19 @@ export const autthOptions = {
         CredentialsProvider({
             name: 'Credentials',
             credentials: {
-                name: {label: "Name", type:"text", placeholder: "John"},
-                email: {label: "Email", type: "email", placeholder: "xyz@email.com"},
-                password: {label: "Password", type: "password", placeholder: "123"}
+                name: { label: "Name", type: "text", placeholder: "John" },
+                email: { label: "Email", type: "email", placeholder: "xyz@email.com" },
+                password: { label: "Password", type: "password", placeholder: "123" }
             },
-            async authorize(credentials : any) {
+            async authorize(credentials: any) {
                 const hashedPassword = await bcrypt.hash(credentials.password, 10);
                 const existingUser = await db.user.findFirst({
-                    where:{email: credentials.email}
+                    where: { email: credentials.email }
                 });
-                
+
                 if (existingUser) {
-                    const passwordValidation = await bcrypt.compare(credentials.password , existingUser.password);
-                    if (passwordValidation){
+                    const passwordValidation = await bcrypt.compare(credentials.password, existingUser.password);
+                    if (passwordValidation) {
                         return {
                             id: existingUser.id.toString(),
                             name: existingUser.name,
@@ -43,7 +43,7 @@ export const autthOptions = {
                         name: (await user).name,
                         email: (await user).email
                     }
-                } catch(e) {
+                } catch (e) {
                     console.log(e);
                 }
                 return null
@@ -77,21 +77,33 @@ export const autthOptions = {
                     });
                 } catch (error) {
                     console.error("Error creating user:", error);
-                    return false; 
+                    return false;
                 }
             }
-
-            return true; 
+            return true;
         },
 
 
-        async session({token,session}: any){
+        async session({ token, session }: any) {
             session.user.id = token.sub
             return session
+            // if (account?.provider === "google") {
+            //     const existingUser = await db.user.findUnique({
+            //         where: { email: session.user.email } // Use session.user.email to find the DB record
+            //     });
+                
+            //     if (existingUser) {
+            //         session.user.id = existingUser.id.toString(); // Update session ID with DB ID
+            //     }
+            // } else {
+            //     session.user.id = token.sub; // Keep existing behavior for other providers
+            // }
+
+            // return session;
         },
-        
-        async redirect() {
-            return '/dashboard'
-        }
+    },
+
+    async redirect() {
+        return '/dashboard'
     }
 }
