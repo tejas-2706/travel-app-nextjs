@@ -19,6 +19,7 @@ import { ToastAction } from "@/components/ui/toast";
 import { toast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
+import { PhotoUploader } from "@/components/my_ui/PhotoUploader";
 const FormSchema = z.object({
     // username: z.string().min(2, {
     //     message: "Username must be at least 2 characters.",
@@ -69,7 +70,7 @@ export default function () {
         <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto px-4 py-16 gap-6">
             <div className="container mx-auto w-1/2">
                 <Card title="Profile" >
-                    <div className="flex flex-col justify-center items-center gap-2">
+                    {/* <div className="flex flex-col justify-center items-center gap-2">
                         <h2 className="font-bold text-3xl">{session.data?.user?.name}</h2>
                         <img className="rounded-full cursor-pointer w-1/2 p-2"
                             src={session.data?.user?.image || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
@@ -79,7 +80,8 @@ export default function () {
                         <Button>
                             Upload New Photo
                         </Button>
-                    </div>
+                    </div> */}
+                    <PhotoUploader/>
                 </Card>
             </div>
             <Card title="Edit Profile">
