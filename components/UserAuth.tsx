@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 export const UserAuth = () => {
@@ -24,9 +25,10 @@ export const UserAuth = () => {
             }}>Signout
             </Button> */}
             <div className="relative">
-                <img className="rounded-full cursor-pointer"
+                <Image className="rounded-full cursor-pointer"
                     src={session.data.user.image || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
                     width={36}
+                    height={36}
                     alt=""
                     onClick={async () => {
                         toggleDropdown()
